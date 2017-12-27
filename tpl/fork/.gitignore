@@ -1,0 +1,182 @@
+##############################################################################
+## BONZAI CONFIG
+#
+# To help yourself to update Bonzai, you should not edit this block of code.
+# Scroll down to the end of the file and write your custom code there.
+
+#################
+## APPLICATION
+
+# Plugins
+/{%= app.webRoot %}/app/plugins/*
+{%= app.webRoot %}/app/plugins/edd-pdf-invoices/tcpdf/cache/
+!/{%= app.webRoot %}/app/plugins/wp-migrate-db-pro
+!/{%= app.webRoot %}/app/plugins/wp-migrate-db-pro-cli
+!/{%= app.webRoot %}/app/plugins/wp-migrate-db-pro-media-files
+!/{%= app.webRoot %}/app/plugins/wp-migrate-db-pro-multisite-tools
+!/{%= app.webRoot %}/app/plugins/js_composer
+!/{%= app.webRoot %}/app/plugins/revslider
+!/{%= app.webRoot %}/app/plugins/royal-portfolio
+!/{%= app.webRoot %}/app/plugins/royal-recent-portfolio-widget
+!/{%= app.webRoot %}/app/plugins/essential-grid
+!/{%= app.webRoot %}/app/plugins/shortcodes-ultimate
+!/{%= app.webRoot %}/app/plugins/Ultimate_VC_Addons
+!/{%= app.webRoot %}/app/plugins/myMail
+!/{%= app.webRoot %}/app/plugins/wp-rocket
+
+# Mu-plugins
+/{%= app.webRoot %}/app/mu-plugins/*
+!/{%= app.webRoot %}/app/mu-plugins/.gitkeep
+!/{%= app.webRoot %}/app/mu-plugins/bonzai-plugins.php
+
+# Themes
+/{%= app.webRoot %}/app/themes/*
+!/{%= app.webRoot %}/app/themes/.gitkeep
+
+# Upgrade
+/{%= app.webRoot %}/app/upgrade
+
+# Uploads
+/{%= app.webRoot %}/app/uploads/*
+!/{%= app.webRoot %}/app/uploads/.gitkeep
+
+# Cache
+/{%= app.webRoot %}/app/cache/*
+!/{%= app.webRoot %}/app/cache/min/
+/{%= app.webRoot %}/app/cache/min/*
+!/{%= app.webRoot %}/app/cache/min/.gitkeep
+!/{%= app.webRoot %}/app/cache/wp-rocket/
+/{%= app.webRoot %}/app/cache/wp-rocket/*
+!/{%= app.webRoot %}/app/cache/wp-rocket/.gitkeep
+/{%= app.webRoot %}/app/advanced-cache.php
+/{%= app.webRoot %}/app/plugins/edd-pdf-invoices/tcpdf/cache/
+/{%= app.webRoot %}/app/plugins/wp-rocket/cache.json
+/{%= app.webRoot %}/app/wp-rocket-config
+
+#################
+# DEPENDENCIES
+
+# Adminer & co
+/html
+
+# WordPress
+/{%= app.webRoot %}/wp
+
+# WP-CLI
+/db-sync
+sql-dump-*.sql
+
+# Dotenv
+/.env
+/.env.*
+!/.env.example
+
+# Vendors
+/vendor/*
+!/vendor/.gitkeep
+
+# Composer
+/composer.lock
+
+# Node Package Manager
+/node_modules
+
+# Vagrant
+/.vagrant
+/{%= app.box %}/files/dot/ssh/*
+!/{%= app.box %}/files/dot/ssh/insecure_private_key
+/config/{%= app.box %}/config-override.yaml
+
+# Codekit
+/codekit-config.json
+/.codekit-cache
+
+# Ghost
+!/ghost/
+/ghost/*
+!/ghost/content
+!/ghost/config.js
+
+# Backups
+/backups/databases/*
+!/backups/databases/.gitkeep
+
+# Tmp and deploy workspace
+/tmp/*
+!/tmp/.gitkeep
+!/tmp/workspace
+/tmp/workspace/*
+!/tmp/workspace/.gitkeep
+
+# Crap
+**/.DS_Store
+/*.log
+/*.log.*
+**/*.log
+
+#####################
+# SIMPLE EDITORS
+
+# Sublime Text
+/*.sublime-project
+/*.sublime-workspace
+
+# NbProject
+/nbproject/private/
+/nbproject/project.properties
+/nbproject/project.xml
+
+#####################
+# JETBRAINS IDEA
+
+# Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm
+
+## Directory-based project format:
+# .idea/
+# *.iml
+
+# if you remove the 2 above rules are commented, at least ignore the following:
+
+# User-specific stuff:
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/dictionaries
+
+# Sensitive or high-churn files:
+.idea/dataSources.ids
+.idea/dataSources.xml
+.idea/sqlDataSources.xml
+.idea/dynamic.xml
+.idea/uiDesigner.xml
+
+# Gradle:
+.idea/gradle.xml
+.idea/libraries
+
+# Mongo Explorer plugin:
+.idea/mongoSettings.xml
+
+## File-based project format:
+*.ipr
+*.iws
+
+## Plugin-specific files:
+
+# IntelliJ
+out/
+
+# mpeltonen/sbt-idea plugin
+.idea_modules/
+
+# JIRA plugin
+atlassian-ide-plugin.xml
+
+# Crashlytics plugin (for Android Studio and IntelliJ)
+com_crashlytics_export_strings.xml
+crashlytics.properties
+crashlytics-build.properties
+
+##############################################################################
+## CUSTOM CONFIG
+#
+# To help yourself to update Bonzai, you should write your custom rules below

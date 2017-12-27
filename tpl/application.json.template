@@ -1,0 +1,17 @@
+{
+    "domain": "your_site.com",
+    "box": "puphpet",
+    "theme": "",
+    "webRoot": "public",
+    "dbHost": "localhost",
+    "dbRootPassword": "root",
+    "dbName": "db_name",
+    "dbUser": "wp",
+    "dbPassword": "wp",
+    "dbPrefix": "wp_",
+    "type": "singlesite",
+    "themes" : "app/themes",
+    "themesPatterns" : [
+        "bonzai-*"
+    ]
+}

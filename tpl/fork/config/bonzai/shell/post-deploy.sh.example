@@ -1,0 +1,45 @@
+#!/bin/bash
+# ==================================================================================================================== #
+#                                                                                                                      #
+#   SHIPIT-POST-DEPLOY (optional)                                                                                      #
+#                                                                                                                      #
+#   This is just an example script to show you that you can create a script called post-deploy.sh that will be         #
+#   executed after your site deployment. It allows you to perform some tasks specific to your server environement.     #
+#                                                                                                                      #
+# ==================================================================================================================== #
+#
+# if [[ (-n $1) && (-n $2) && (-n $3) ]]; then
+#
+# 	DEPLOY_TO_PATH=$1
+# 	RELEASES_PATH=$2
+# 	RELEASE_DIR_NAME=$3
+# 	RELEASE_PATH=${RELEASES_PATH}/${RELEASE_DIR_NAME}
+#
+#     echo "> Launching post deploy script"
+#
+#     # START CUSTOM SHARED FILES
+#
+#     echo "> -- Creating & linking shared wp-rocket cache folder"
+#     rm -R ${RELEASE_PATH}/html/cache
+#     mkdir -p ${DEPLOY_TO_PATH}/shared/html/cache
+#     mkdir -p ${DEPLOY_TO_PATH}/shared/html/cache/min
+#     mkdir -p ${DEPLOY_TO_PATH}/shared/html/cache/wp-rocket
+#     ln -s ${DEPLOY_TO_PATH}/shared/html/cache ${RELEASE_PATH}/html/cache
+#
+#     echo "> -- Creating & linking shared wp-rocket config folder"
+#     rm -R ${RELEASE_PATH}/config/wp-rocket
+#     mkdir -p ${DEPLOY_TO_PATH}/shared/config
+#     mkdir -p ${DEPLOY_TO_PATH}/shared/config/wp-rocket
+#     ln -s ${DEPLOY_TO_PATH}/shared/config/wp-rocket ${RELEASE_PATH}/config/wp-rocket
+#
+#     # END CUSTOM SHARED FILES
+#
+#     echo "> Finished execution of the post deploy script"
+#
+# # Print arguments to debug
+# else
+# 	echo "Not all required variables have values:"
+# 	echo "> DEPLOY_TO_PATH = $1"
+# 	echo "> RELEASES_PATH = $2"
+# 	echo "> RELEASE_DIR_NAME = $3"
+# fi
