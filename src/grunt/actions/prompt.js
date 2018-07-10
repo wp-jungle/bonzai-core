@@ -375,7 +375,9 @@ module.exports = function (grunt, options) {
                         config: 'wp.wpmdb.url',
                         type: 'input',
                         message: 'WPMDB url from where to pull the database:',
-                        default: "https://user:pass@<%= app.domain %>/wp",
+                        default: function () {
+                            return options.app.wpmdb.pull.url || 'https://user:pass@' + options.app.domain + '/wp';
+                        },
                         when: function (answers) {
                             return answers['wp.wpmdb.ask'] !== false && options.bonzai.isForked && answers['wp.wpmdb.import'] === true;
                         }
@@ -384,7 +386,9 @@ module.exports = function (grunt, options) {
                         config: 'wp.wpmdb.secret',
                         type: 'input',
                         message: 'WPMDB secret connection key to the remote:',
-                        default: "xxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                        default: function () {
+                            return grunt.template.process(options.app.wpmdb.pull.secret) || 'xxxxxxxxxxxxxxxxxxxxxxxxxxx';
+                        },
                         when: function (answers) {
                             return answers['wp.wpmdb.ask'] !== false && options.bonzai.isForked && answers['wp.wpmdb.import'] === true;
                         }
@@ -394,7 +398,7 @@ module.exports = function (grunt, options) {
                         type: 'input',
                         message: 'Path/strings  to find in the database:',
                         default: function() {
-                            return "//" + grunt.config('app.domain') + ",/var/www/vhosts/" + getDomain('http://' + grunt.config('app.domain') + '/') + "/" + grunt.config('app.domain') + "/current";
+                            return options.app.wpmdb.pull.find || "//" + grunt.config('app.domain') + ",/var/www/vhosts/" + getDomain('http://' + grunt.config('app.domain') + '/') + "/" + grunt.config('app.domain') + "/current";
                         },
                         when: function (answers) {
                             return answers['wp.wpmdb.ask'] !== false && options.bonzai.isForked && answers['wp.wpmdb.import'] === true;
@@ -405,7 +409,7 @@ module.exports = function (grunt, options) {
                         type: 'input',
                         message: 'Replacements for each path/strings found:',
                         default: function() {
-                            return "//" + grunt.config('pkg.name') + ".local,/var/www";
+                            return options.app.wpmdb.pull.replace || "//" + grunt.config('pkg.name') + ".local,/var/www";
                         },
                         when: function (answers) {
                             return answers['wp.wpmdb.ask'] !== false && options.bonzai.isForked && answers['wp.wpmdb.import'] === true;

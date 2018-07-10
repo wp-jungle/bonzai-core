@@ -13,5 +13,13 @@
     "themes" : "app/themes",
     "themesPatterns" : [
         "bonzai-*"
-    ]
+    ],
+    "wpmdb": {
+        "pull": {
+            "url": "",
+            "secret": "<%= bonzai.env.WPMDB_PULL_SECRET %>",
+            "find": "",
+            "replace": ""
+        }
+    }
 }
