@@ -45,7 +45,7 @@ vagrantfile:
                 group: www-data
                 source: ./
                 target: /var/www
-                sync_type: nfs
+                sync_type: default
                 smb:
                     smb_host: ~
                     smb_username: ~
