@@ -4,11 +4,15 @@ vagrantfile:
             local:
                 chosen_virtualizer: {%= current.user.vagrant.provider %}
                 machines:
-                    vflm_21tvv5gqiefp:
+                    machine1:
                         id: {%= pkg.name %}
-                        hostname: vm.{%= pkg.name %}.local
+                        hostname: {%= pkg.name %}.puphpet
                         network:
                             private_network: {%= current.user.vagrant.ip %}
+                            forwarded_port:
+                                port1:
+                                    host: '6762'
+                                    guest: '22'
                         memory: '{%= current.user.vagrant.memory %}'
                         cpus: '{%= current.user.vagrant.cpus %}'
     ssh:
