@@ -124,7 +124,6 @@ Check the installation procedure on the [Vagrant](http://www.vagrantup.com/) sit
 Then, open a command prompt as administrator, and type the two following commands :
 ```
 $ vagrant plugin install vagrant-hostmanager
-$ vagrant plugin install vagrant-triggers
 $ vagrant plugin install vagrant-bindfs
 $ vagrant plugin install vagrant-vbguest
 ```
