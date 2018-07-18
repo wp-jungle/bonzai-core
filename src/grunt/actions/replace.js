@@ -44,11 +44,11 @@ module.exports = function (grunt, options) {
                 },
                 {
                     from: /WP_HOME=(.)*/g,
-                    to: "WP_HOME=\"http://<%= pkg.name %>.local\""
+                    to: "WP_HOME=\"http://<%= pkg.name %>.test\""
                 },
                 {
                     from: /WP_SITEURL=(.)*/g,
-                    to: "WP_SITEURL=\"http://<%= pkg.name %>.local/wp\""
+                    to: "WP_SITEURL=\"http://<%= pkg.name %>.test/wp\""
                 },
                 {
                     from: /BONZAI_WP_TITLE=(.)*/g,
@@ -123,11 +123,11 @@ module.exports = function (grunt, options) {
                 },
                 {
                     from: /WP_HOME=(.)*/g,
-                    to: "WP_HOME=\"http://<%= pkg.name %>.local\""
+                    to: "WP_HOME=\"http://<%= pkg.name %>.test\""
                 },
                 {
                     from: /WP_SITEURL=(.)*/g,
-                    to: "WP_SITEURL=\"http://<%= pkg.name %>.local/wp\""
+                    to: "WP_SITEURL=\"http://<%= pkg.name %>.test/wp\""
                 },
                 {
                     from: /BONZAI_WP_TITLE=(.)*/g,

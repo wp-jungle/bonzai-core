@@ -409,7 +409,7 @@ module.exports = function (grunt, options) {
                         type: 'input',
                         message: 'Replacements for each path/strings found:',
                         default: function() {
-                            return options.app.wpmdb.pull.replace || "//" + grunt.config('pkg.name') + ".local,/var/www";
+                            return options.app.wpmdb.pull.replace || "//" + grunt.config('pkg.name') + ".test,/var/www";
                         },
                         when: function (answers) {
                             return answers['wp.wpmdb.ask'] !== false && options.bonzai.isForked && answers['wp.wpmdb.import'] === true;

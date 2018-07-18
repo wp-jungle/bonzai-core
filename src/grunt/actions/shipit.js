@@ -4,7 +4,7 @@ module.exports = function (grunt) {
         "default": {
             "workspace": "/tmp/workspace",
             "repositoryUrl": "<%= pkg.repository.url %>",
-            "url": "http://<%= pkg.name %>.local",
+            "url": "http://<%= pkg.name %>.test",
             "deployTo": "/tmp/deployTo",
             "ignores": [
                 ".git",
