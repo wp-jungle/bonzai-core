@@ -241,9 +241,6 @@ php:
             - cli
             - intl
             - xml
-            - mcrypt
-            - imagick
-            - mbstring
         pear: {  }
         pecl: {  }
     ini:
