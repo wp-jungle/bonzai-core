@@ -93,6 +93,7 @@ server:
         - git-core
         - unzip
         - zip
+        - sendmail
 users_groups:
     install: '1'
     groups: {  }
