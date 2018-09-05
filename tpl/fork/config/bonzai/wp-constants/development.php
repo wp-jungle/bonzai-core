@@ -1,6 +1,6 @@
 <?php
 // Multisite
-// define('DOMAIN_CURRENT_SITE', '{%= pkg.name %}.local');
+// define('DOMAIN_CURRENT_SITE', '{%= pkg.name %}.test');
 
 // Errors display
 define('SAVEQUERIES', false);

@@ -8,7 +8,7 @@ Fork Bonzai to a new project
 
 1. Clone/Fork repo.
 
-   `git clone --recursive git@github.com:wp-jungle/bonzai.git example.local`
+   `git clone --recursive git@github.com:wp-jungle/bonzai.git example.test`
    
    > Do not forget the `recursive` tag or sub-modules won't be initialised
 
@@ -46,7 +46,7 @@ Fork Bonzai to a new project
 6. Once the installation started, you should take a cup of coffee or something. Everything, including your VM will be
    installed. It can take a while ...
 
-7. Access your VM at `http://vm.{project slug}.local/`, and your site at `http://{project slug}.local/`
+7. Access your VM at `http://vm.{project slug}.test/`, and your site at `http://{project slug}.test/`
    `{project slug}` is the name of the domain/project you entered while forking.
    
 8. Follow the instructions given on this page, and add the VM IP to your hosts file.
@@ -79,7 +79,7 @@ the database, and the media upload files. Awesome huh ? Okay, let's start !
    the correct URLs. Check the next section for more details on this step.
    
 8. Open standard note block with UAC rights, then navigate to `C:\Windows\System32\drivers\etc` and open the `hosts`
-   file. Make sure the IP is added for both `yourdomain.local` and `www.yourdomain.local`.
+   file. Make sure the IP is added for both `yourdomain.test` and `www.yourdomain.test`.
 
 
 Pull database and medias files from the online project
