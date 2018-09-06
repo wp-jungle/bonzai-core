@@ -359,7 +359,7 @@ module.exports = function (grunt, options) {
                             return grunt.config('bonzai.env.WPMDB_LICENCE') || "Your_Licence_Key"
                         },
                         when: function (answers) {
-                            return answers['wp.wpmdb.ask'] !== false && ! grunt.file.exists(options.app.webRoot + '/app/plugins/wp-migrate-db-pro/wp-migrate-db-pro.php');
+                            return answers['wp.wpmdb.ask'] !== false;
                         }
                     },
                     {
@@ -419,11 +419,12 @@ module.exports = function (grunt, options) {
                 then: function (results) {
                     if (results['wp.wpmdb.ask'] === true && results['wp.wpmdb.key'] !== "Your_Licence_Key" && results['wp.wpmdb.key'] !== "") {
 
-                        if( ! grunt.file.exists(options.app.webRoot + '/app/plugins/wp-migrate-db-pro/wp-migrate-db-pro.php')) {
-                            grunt.config('bonzai.env.WPMDB_LICENCE', results['wp.wpmdb.key']);
-                        } else {
-                            grunt.config('bonzai.env.WPMDB_LICENCE', 'Your_Licence_Key');
+                        grunt.config('bonzai.env.WPMDB_LICENCE', results['wp.wpmdb.key']);
+
+                        if(results['wp.wpmdb.secret'] !== "" && results['wp.wpmdb.secret'] !== 'xxxxxxxxxxxxxxxxxxxxxxxxxxx') {
+                            grunt.config('bonzai.env.WPMDB_PULL_SECRET', results['wp.wpmdb.secret']);
                         }
+
                         if (results['wp.wpmdb.import'] === true){
                             grunt.log.ok('WPMDB licence specified, will import database and medias at the end of the task');
                             grunt.config('wp.wpmdb.importDB', true);
@@ -437,7 +438,7 @@ module.exports = function (grunt, options) {
                         }
                     } else {
                         grunt.log.error('No WPMDB licence specified, skipping database and medias importation');
-                        grunt.config('bonzai.env.WPMDB_LICENCE', '');
+                        //grunt.config('bonzai.env.WPMDB_LICENCE', '');
                         grunt.config('wp.wpmdb.importDB', false);
                     }
                 }

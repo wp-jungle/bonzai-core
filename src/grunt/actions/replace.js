@@ -150,6 +150,10 @@ module.exports = function (grunt, options) {
                     to: "WPMDB_LICENCE=\"<%= bonzai.env.WPMDB_LICENCE %>\""
                 },
                 {
+                    from: /WPMDB_PULL_SECRET=(.)*/g,
+                    to: "WPMDB_PULL_SECRET=\"<%= bonzai.env.WPMDB_PULL_SECRET %>\""
+                },
+                {
                     from: /BONZAI_CURRENT_USER_RSA=(.)*/g,
                     to: "BONZAI_CURRENT_USER_RSA=\"<%= bonzai.env.BONZAI_CURRENT_USER_RSA %>\""
                 }
