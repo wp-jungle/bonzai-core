@@ -20,7 +20,6 @@ $files = array(
     $bonzai_mu_plugins_root . '/disallow-indexing.php',
     $bonzai_mu_plugins_root . '/register-theme-directory.php',
     $bonzai_mu_plugins_root . '/dashboard-widget-changelog.php',
-    $bonzai_mu_plugins_root . '/mu-mymail-cron.php',
     $bonzai_mu_plugins_root . '/wp-migrate-db-pro-compatibility.php'
 );
 
