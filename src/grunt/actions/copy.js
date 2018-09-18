@@ -53,7 +53,15 @@ module.exports = function (grunt, options) {
                     cwd: 'bonzai/tpl/fork/puphpet/',
                     src: ["**", "**/.*"],
                     dest: 'puphpet'
-                }
+                },
+
+                // includes webroot/logs files into custom directory
+                {
+                    expand: true,
+                    cwd: 'bonzai/tpl/fork/logs/',
+                    src: ["**", "**/.*"],
+                    dest: 'logs'
+                },
 
             ],
             options: {
