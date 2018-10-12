@@ -42,7 +42,7 @@ vagrantfile:
         synced_folder:
             folder1:
                 owner: vagrant
-                group: vagrant
+                group: www-data
                 source: ./
                 target: /var/www
                 sync_type: default
