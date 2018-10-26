@@ -110,7 +110,7 @@ module.exports = function (grunt, options) {
             'prompt:wp_config',
             'prompt:wp_install',
             'prompt:vagrant',
-            'prompt:wp_plugins',
+            //'prompt:wp_plugins',
             'prompt:wp_wpmdb',
             'prompt:wp_salts'
         ];
@@ -155,7 +155,7 @@ module.exports = function (grunt, options) {
                 }
                 tasks.push(
                     // Customize this WP Install with some known plugins
-                    'exec:wp_plugins',
+                    //'exec:wp_plugins',
 
                     // Cleanup
                     'exec:wp_update_db',
