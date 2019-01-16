@@ -119,16 +119,7 @@ resolv:
     searchpath: {  }
 cron:
     install: '1'
-    jobs:
-        job_6aw:
-            name: ''
-            user: ''
-            command: ''
-            minute: ''
-            hour: ''
-            weekday: ''
-            month: ''
-            monthday: ''
+    jobs: {  }
 nginx:
     install: '0'
     settings:
@@ -262,7 +253,7 @@ php:
     composer: '1'
     composer_home: ''
 xdebug:
-    install: '1'
+    install: '0'
     settings:
         xdebug.default_enable: '1'
         xdebug.remote_autostart: '0'
@@ -335,12 +326,12 @@ mysql:
     install: '1'
     settings:
         version: '5.7'
-        root_password: {%= bonzai.env.BONZAI_DB_ROOT %}
+        root_password: '{%= bonzai.env.BONZAI_DB_ROOT %}'
         override_options: {  }
     users:
         user1:
             name: {%= bonzai.env.DB_USER %}
-            password: {%= bonzai.env.DB_PASSWORD %}
+            password: '{%= bonzai.env.DB_PASSWORD %}'
     databases:
         database1:
             name: {%= bonzai.env.DB_NAME %}
@@ -359,20 +350,20 @@ postgresql:
             encoding: UTF8
             version: '9.6'
         server:
-            postgres_password: '123'
+            postgres_password: '{%= bonzai.env.BONZAI_DB_ROOT %}'
     databases:
         database1:
-            dbname: dbname
-            owner: dbuser
+            dbname: {%= bonzai.env.DB_NAME %}
+            owner: {%= bonzai.env.DB_USER %}
     users:
         user1:
-            username: dbuser
-            password: '123'
+            username: {%= bonzai.env.DB_USER %}
+            password: '{%= bonzai.env.DB_PASSWORD %}'
             superuser: '1'
     grants:
         grant1:
-            role: dbuser
-            db: dbname
+            role: {%= bonzai.env.DB_USER %}
+            db: {%= bonzai.env.DB_NAME %}
             privilege:
                 - ALL
 mongodb:
@@ -384,9 +375,9 @@ mongodb:
         version: 3.6.2
     databases:
         database1:
-            name: dbname
-            user: dbuser
-            password: '123'
+            name: {%= bonzai.env.DB_NAME %}
+            user: {%= bonzai.env.DB_USER %}
+            password: '{%= bonzai.env.DB_PASSWORD %}'
 redis:
     install: '0'
     settings:
@@ -395,7 +386,7 @@ sqlite:
     install: '0'
     databases:
         database1:
-            name: dbname
+            name: {%= bonzai.env.DB_NAME %}
             owner: www-data
             group: www-data
             sql_file: ''
@@ -426,7 +417,7 @@ rabbitmq:
         user1:
             admin: '1'
             name: admin
-            password: '123'
+            password: '{%= bonzai.env.DB_PASSWORD %}'
             tags:
                 - admin
     vhosts: {  }

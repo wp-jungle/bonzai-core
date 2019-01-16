@@ -13,13 +13,13 @@ class puphpet::ruby {
   -> Puphpet::Ruby::Dotfile <| |>
   -> Puphpet::Ruby::Install <| |>
 
-  gnupg_key { "rvm_${::rvm::params::gnupg_key_id}":
-    ensure     => present,
-    key_id     => $::rvm::params::gnupg_key_id,
-    user       => 'root',
-    key_source => 'https://rvm.io/mpapis.asc',
-    key_type   => public,
-  }
+  gnupg_key { "rvm_pkuczynski":
+      ensure     => present,
+      key_id     => '7D2BAF1C',
+      user       => 'root',
+      key_source => 'https://rvm.io/pkuczynski.asc',
+      key_type   => public,
+    }
   -> class { '::rvm':
     key_server   => undef,
     gnupg_key_id => false,
