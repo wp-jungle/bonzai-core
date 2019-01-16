@@ -14,9 +14,6 @@ $bonzai_mu_plugins_root = dirname(__FILE__) . '/files';
 $vendor_root = dirname(dirname(dirname(dirname(dirname(__FILE__))))) . '/vendor';
 
 $files = array(
-    $site_mu_plugins_root . '/error-log-monitor/plugin.php',
-    $site_mu_plugins_root . '/recently-edited-content-widget/recently-edited-content-widget.php',
-    $site_mu_plugins_root . '/right-now-reloaded/right-now-reloaded.php',
     $bonzai_mu_plugins_root . '/disallow-indexing.php',
     $bonzai_mu_plugins_root . '/register-theme-directory.php',
     $bonzai_mu_plugins_root . '/dashboard-widget-changelog.php',

@@ -4,11 +4,11 @@
   "description": "{%= pkg.description %}",
   "require": {
     "php": ">=5.6",
-    "composer/installers": "v1.5.0",
-    "vlucas/phpdotenv": "v2.5.1",
-    "johnpbloch/wordpress": "4.9.8",
+    "composer/installers": "v1.6.0",
+    "vlucas/phpdotenv": "v3.1.0",
+    "johnpbloch/wordpress": "5.0.3",
     "michelf/php-markdown": "1.8.0",
-    "wpackagist-plugin/error-log-monitor": "1.6.2",
+    "wpackagist-plugin/error-log-monitor": "1.6.3",
     "wpackagist-plugin/recently-edited-content-widget": "0.3.2",
     "wpackagist-plugin/right-now-reloaded": "2.2"
   },
@@ -23,20 +23,17 @@
   ],
   "extra": {
     "installer-paths": {
-      "{%= app.webRoot %}/app/mu-plugins/{$name}/": [
-        "type:wordpress-muplugin",
-        "wpackagist-plugin/error-log-monitor",
-        "wpackagist-plugin/recently-edited-content-widget",
-        "wpackagist-plugin/right-now-reloaded"
+      "public/app/mu-plugins/{$name}/": [
+        "type:wordpress-muplugin"
       ],
-      "{%= app.webRoot %}/app/plugins/{$name}/": [
+      "public/app/plugins/{$name}/": [
         "type:wordpress-plugin"
       ],
-      "{%= app.webRoot %}/app/themes/{$name}/": [
+      "public/app/themes/{$name}/": [
         "type:wordpress-theme"
       ]
     },
-    "wordpress-install-dir": "{%= app.webRoot %}/wp"
+    "wordpress-install-dir": "public/wp"
   },
   "autoload": {
     "psr-0": { "Michelf": "" }
