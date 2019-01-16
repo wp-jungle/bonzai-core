@@ -7,8 +7,8 @@ $webroot_dir = $root_dir . '/{%= app.webRoot %}'; // public
  * Use Dotenv to set required environment variables and load .env file in root
  */
 if (file_exists($root_dir . '/.env')) {
-  $dotenv = new Dotenv\Dotenv($root_dir);
-  $dotenv->load();
+	$dotenv = Dotenv\Dotenv::create(($root_dir));
+	$dotenv->overload();
 }
 
 $dotenv->required(['DB_NAME', 'DB_USER', 'DB_PASSWORD', 'WP_HOME', 'WP_SITEURL']);
