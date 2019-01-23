@@ -109,6 +109,8 @@ sql-dump-*.sql
 !/tmp/workspace/.gitkeep
 
 # Crap
+/logs/*
+!/logs/.gitkeep
 **/.DS_Store
 /*.log
 /*.log.*
