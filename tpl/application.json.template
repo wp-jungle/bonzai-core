@@ -1,6 +1,6 @@
 {
     "domain": "your_site.com",
-    "box": "puphpet",
+    "box": "homestead",
     "theme": "",
     "webRoot": "public",
     "dbHost": "localhost",

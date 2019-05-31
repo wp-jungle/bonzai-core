@@ -10,9 +10,7 @@ module.exports = function (grunt, options) {
             files: [{
                 expand: true,
                 src: [
-                    'config/**/*',
-                    'puphpet/config.yaml',
-                    'puphpet/puppet/Puppetfile'
+                    'config/**/*'
                 ],
                 dest: ''
             }]

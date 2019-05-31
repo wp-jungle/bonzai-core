@@ -56,9 +56,6 @@
 #################
 # DEPENDENCIES
 
-# Adminer & co
-/html
-
 # WordPress
 /{%= app.webRoot %}/wp
 
@@ -85,7 +82,8 @@ sql-dump-*.sql
 /.vagrant
 /{%= app.box %}/files/dot/ssh/*
 !/{%= app.box %}/files/dot/ssh/insecure_private_key
-/config/{%= app.box %}/config-override.yaml
+/config/homestead/user-customizations.sh
+/config/homestead/user-homestead.yaml
 
 # Codekit
 /codekit-config.json
@@ -98,8 +96,10 @@ sql-dump-*.sql
 !/ghost/config.js
 
 # Backups
-/backups/databases/*
-!/backups/databases/.gitkeep
+/mysql_backup/*
+!/mysql_backup/.gitkeep
+/postgres_backup/*
+!/postgres_backup/.gitkeep
 
 # Tmp and deploy workspace
 /tmp/*

@@ -1,0 +1,7 @@
+ip: {%= current.user.vagrant.ip %}
+memory: {%= current.user.vagrant.memory %}
+cpus: {%= current.user.vagrant.cpus %}
+provider: {%= current.user.vagrant.provider %}
+authorize: {%= bonzai.env.BONZAI_CURRENT_USER_RSA %}.pub
+keys:
+  - {%= bonzai.env.BONZAI_CURRENT_USER_RSA %}

@@ -4,7 +4,7 @@ module.exports = function (grunt, options) {
 
         // Vagrant up
         vagrant_up: {
-            command: 'vagrant up',
+            command: 'vagrant up --provision',
             options: {stdout: true}
         },
 
@@ -68,22 +68,6 @@ module.exports = function (grunt, options) {
             options: {stdout: true}
         },
 
-        // Plugins
-        wp_plugins: {
-            command: function () {
-                var plugins = grunt.template.process('<%= wp.plugins %>');
-                if (plugins.length > 0) {
-                    plugins = Object.prototype.toString.call( plugins ) === '[object Array]' ? plugins.join(' ') : plugins.replace(/,/g, ' ');
-                    grunt.log.writeln('>> Installing selected plugins');
-                    return 'vagrant ssh --command "cd /var/www && composer require ' + plugins + '"';
-                } else {
-                    grunt.log.writeln('>> No selected plugins to install, skipping step.');
-                    return '';
-                }
-            },
-            options: {stdout: true}
-        },
-
         // Permalinks
         wp_permalinks: {
             command: [
@@ -102,7 +86,7 @@ module.exports = function (grunt, options) {
 
         // Compose
         run_composer: {
-            command: 'vagrant ssh --command "cd /var/www && echo \'>> Running composer install\' && composer update"',
+            command: 'echo \'>> Running composer update\' && composer update',
             options: {stdout: true}
         }
 

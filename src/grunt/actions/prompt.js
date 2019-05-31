@@ -1,10 +1,11 @@
 module.exports = function (grunt, options) {
 
-    var semver = require('semver'),
-        remote = require('remote-origin-url');
+    let semver = require('semver'),
+        remote = require('remote-origin-url'),
+        psl = require('psl');
 
     function getHostName(url) {
-        var match = url.match(/:\/\/(www[0-9]?\.)?(.[^/:]+)/i);
+        let match = url.match(/:\/\/(www[0-9]?\.)?(.[^/:]+)/i);
         if (match != null && match.length > 2 && typeof match[2] === 'string' && match[2].length > 0) {
             return match[2];
         }
@@ -14,16 +15,16 @@ module.exports = function (grunt, options) {
     }
 
     function getDomain(url) {
-        var hostName = getHostName(url);
-        var domain = hostName;
+        let hostName = getHostName(url),
+            domain = hostName;
 
         if (hostName != null) {
-            var parts = hostName.split('.').reverse();
+            let parts = hostName.split('.').reverse();
 
             if (parts != null && parts.length > 1) {
                 domain = parts[1] + '.' + parts[0];
 
-                if (hostName.toLowerCase().indexOf('.co.uk') != -1 && parts.length > 2) {
+                if (hostName.toLowerCase().indexOf('.co.uk') !== -1 && parts.length > 2) {
                     domain = parts[2] + '.' + domain;
                 }
             }
@@ -46,11 +47,11 @@ module.exports = function (grunt, options) {
                             return options.bonzai.isForked ? "<%= app.domain %>" : "your-site.ext";
                         },
                         validate: function (value) {
-                            var valid = /^[0-9a-z\-\.]+$/.test(value);
-                            var domainExtensions = [
+                            let valid = /^[0-9a-z\-\.]+$/.test(value);
+                            let domainExtensions = [
                                 "gov", "org", "co", "com", "in", "info", "net", "uk", "af", "am", "ar", "au", "as", "az", "be", "bg", "bn", "bo", "bs", "ca", "cs", "cy", "da", "de", "dv", "el", "en", "es", "et", "eu", "fa", "fi", "fo", "fr", "gd", "gg", "gl", "gn", "gu", "he", "hi", "hr", "hu", "hy", "id", "is", "it", "jp", "ka", "kk", "km", "kn", "ko", "ks", "la", "lo", "lt", "lv", "mi", "mk", "ml", "mn", "mr", "ms", "mt", "my", "nb", "ne", "nl", "or", "pa", "pl", "pt", "rm", "ro", "ru", "sa", "sb", "sd", "si", "sk", "sl", "so", "sq", "sr", "sv", "sw", "ta", "te", "tg", "th", "tk", "tn", "tr", "ts", "tt", "uk", "ur", "uz", "vi", "xh", "yi", "zh", "zu"
                             ];
-                            var domainRegex = new RegExp("\.?(\." + domainExtensions.join('|') + ")+$");
+                            let domainRegex = new RegExp("\.?(\." + domainExtensions.join('|') + ")+$");
                             if (valid) {
                                 grunt.config('pkg.name', value.replace(domainRegex, ''));
                             }
@@ -65,7 +66,7 @@ module.exports = function (grunt, options) {
                             return options.bonzai.isForked ? "<%= pkg.description %>" : "project description";
                         },
                         validate: function (value) {
-                            var valid = value !== "";
+                            let valid = value !== "";
                             return valid || "Please, enter a description";
                         }
                     },
@@ -77,7 +78,7 @@ module.exports = function (grunt, options) {
                             return options.bonzai.isForked ? "<%= pkg.author %>" : "Firstname Lastname <author@mail.com>";
                         },
                         validate: function (value) {
-                            var valid = value !== "";
+                            let valid = value !== "";
                             return valid || "Please, enter something";
                         }
                     },
@@ -89,7 +90,7 @@ module.exports = function (grunt, options) {
                             return options.bonzai.isForked ? "<%= pkg.version %>" : "0.0.1";
                         },
                         validate: function (value) {
-                            var valid = /^[0-9]+.[0-9]+.[0-9]+$/.test(value);
+                            let valid = /^[0-9]+.[0-9]+.[0-9]+$/.test(value);
                             return valid || "Your version number must be in X.X.X format";
                         }
                     },
@@ -101,7 +102,7 @@ module.exports = function (grunt, options) {
                             return options.bonzai.isForked ? "<%= pkg.repository.url %>" : ( remote.sync() || 'git@github.com:username/project.git' );
                         },
                         validate: function (value) {
-                            var valid = /((git|ssh|http(s)?)|(git@[\w\.]+))(:(\/\/)?)([\w\.@\:/\-~]+)(\.git)(\/)?/.test(value);
+                            let valid = /((git|ssh|http(s)?)|(git@[\w\.]+))(:(\/\/)?)([\w\.@\:/\-~]+)(\.git)(\/)?/.test(value);
                             return valid || "Please, enter a git repository URL";
                         }
                     },
@@ -111,7 +112,7 @@ module.exports = function (grunt, options) {
                         message: 'Project webroot folder:',
                         default: '<%= app.webRoot %>',
                         validate: function (value) {
-                            var valid = /^[a-z\-_]+$/.test(value);
+                            let valid = /^[a-z\-_]+$/.test(value);
                             return valid || "Please, use lower letters, dash and underscores only";
                         }
                     },
@@ -120,11 +121,11 @@ module.exports = function (grunt, options) {
                         type: 'input',
                         message: 'Project DB_PREFIX:',
                         default: function () {
-                            var slug = grunt.config('pkg.name').replace(/[^\w]/gi, '') || 'wp';
+                            let slug = grunt.config('pkg.name').replace(/[^\w]/gi, '') || 'wp';
                             return slug + '_';
                         },
                         validate: function (value) {
-                            var valid = /^[a-z_]+$/.test(value);
+                            let valid = /^[a-z_]+$/.test(value);
                             return valid || "Please, use lower letters and underscores only";
                         }
                     }
@@ -286,9 +287,9 @@ module.exports = function (grunt, options) {
                     {
                         config: 'bonzai.env.BONZAI_CURRENT_USER_RSA',
                         type: 'input',
-                        message: 'Path to RSA key:',
+                        message: 'Path to RSA key (make sure you also have a .pub file in the same directory):',
                         default: function () {
-                            return grunt.config('bonzai.env.BONZAI_CURRENT_USER_RSA') || "C:\\\\Users\\\\Username\\\\.ssh\\\\id_rsa";
+                            return grunt.config('bonzai.env.BONZAI_CURRENT_USER_RSA') || "~/.ssh/id_rsa";
                         }
                     }
                 ]
@@ -398,7 +399,8 @@ module.exports = function (grunt, options) {
                         type: 'input',
                         message: 'Path/strings  to find in the database:',
                         default: function() {
-                            return options.app.wpmdb.pull.find || "//" + grunt.config('app.domain') + ",/var/www/vhosts/" + getDomain('http://' + grunt.config('app.domain') + '/') + "/" + grunt.config('app.domain') + "/current";
+                            let httpdocs = psl.get(extractHostname(grunt.config('app.domain'))) === grunt.config('app.domain') ? 'httpdocs' : grunt.config('app.domain');
+                            return options.app.wpmdb.pull.find || "//" + grunt.config('app.domain') + ",/let/www/vhosts/" + getDomain('http://' + grunt.config('app.domain') + '/') + "/" + httpdocs + "/current";
                         },
                         when: function (answers) {
                             return answers['wp.wpmdb.ask'] !== false && options.bonzai.isForked && answers['wp.wpmdb.import'] === true;
@@ -409,7 +411,7 @@ module.exports = function (grunt, options) {
                         type: 'input',
                         message: 'Replacements for each path/strings found:',
                         default: function() {
-                            return options.app.wpmdb.pull.replace || "//" + grunt.config('pkg.name') + ".test,/var/www";
+                            return options.app.wpmdb.pull.replace || "//" + grunt.config('pkg.name') + ".test,/let/www";
                         },
                         when: function (answers) {
                             return answers['wp.wpmdb.ask'] !== false && options.bonzai.isForked && answers['wp.wpmdb.import'] === true;
@@ -558,7 +560,7 @@ module.exports = function (grunt, options) {
                             return answers['bumper.prompt.increment'] === 'custom';
                         },
                         validate: function (value) {
-                            var valid = semver.valid(value);
+                            let valid = semver.valid(value);
                             return valid || 'Must be a valid semver, such as 1.2.3-rc1. See http://semver.org/ for more details.';
                         }
                     },
@@ -580,7 +582,7 @@ module.exports = function (grunt, options) {
                             return ( answers['bumper.prompt.increment'] === 'build' && answers['bumper.prompt.useDefaults'] === false && answers['bumper.prompt.increment'] !== 'none' );
                         },
                         validate: function (value) {
-                            var valid = value != "";
+                            let valid = value != "";
                             return valid || 'Please, enter something.';
                         }
                     },

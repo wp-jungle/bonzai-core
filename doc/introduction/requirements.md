@@ -9,6 +9,7 @@ you will need and the versions we tested. Make sure you have everything installe
   - [Git](#git)
   - [SourceTree](#sourcetree)
   - [PHPStorm](#phpstorm)
+* [PHP](#php) 7.3.6
 * [Ruby](#ruby) 2.2.5
 * [VirtualBox](#virtualBox) 5.1.0
 * [Vagrant and plugins](#Vagrant) 1.8.6
@@ -74,9 +75,10 @@ for Windows users.
 
 > You should give main executable UAC rights (`C:\Program Files\Git\bin\sh.exe`)
 
-### SourceTree
+### SourceTree / Gitkraken
 
-We also recommend free [SourceTree](http://www.sourcetreeapp.com/) for managing your repositories.
+We also recommend free [SourceTree](http://www.sourcetreeapp.com/) or [GitKraken](https://www.gitkraken.com/) for
+managing your repositories.
 
 ### PHPStorm
 
@@ -85,6 +87,11 @@ Once installed, go to `file -> Settings -> Tools -> Terminal` and in the `shell 
 you installed git. It should looks like `C:\Program Files\Git\bin\sh.exe`
 
 > You should give main executable UAC rights
+
+Php
+---
+
+Download [PHP](https://www.php.net/downloads.php) and add binaries to Windows environment variables
 
 Ruby
 ----

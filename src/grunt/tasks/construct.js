@@ -30,14 +30,14 @@ module.exports = function (grunt, options) {
                 // Fork the files from Bonzai templates
                 'copy:puphpet',
 
+                // Install Composer dependencies
+                'exec:run_composer',
+
                 // Vagrant
                 'exec:vagrant_up',
 
                 // Update variables
                 'replace:clone_env_set',
-
-                // Install Composer dependencies
-                'exec:run_composer'
 
             ];
 
@@ -123,14 +123,14 @@ module.exports = function (grunt, options) {
                 'replace:fork_application',
                 'lineending:fixcopyln',
 
+                // Install Composer dependencies
+                'exec:run_composer',
+
                 // Vagrant
                 'exec:vagrant_up',
 
                 // Update variables
-                'replace:fork_env_set',
-
-                // Install Composer dependencies
-                'exec:run_composer'
+                'replace:fork_env_set'
 
             ];
             // Single/multi site installation

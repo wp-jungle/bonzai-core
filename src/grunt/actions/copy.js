@@ -42,17 +42,9 @@ module.exports = function (grunt, options) {
                 // includes webroot/backups files into custom directory
                 {
                     expand: true,
-                    cwd: 'bonzai/tpl/fork/backups/',
+                    cwd: 'bonzai/tpl/fork/mysql_backup/',
                     src: ["**", "**/.*"],
                     dest: 'backups'
-                },
-
-                // includes webroot/puphpet files into custom directory
-                {
-                    expand: true,
-                    cwd: 'bonzai/tpl/fork/puphpet/',
-                    src: ["**", "**/.*"],
-                    dest: 'puphpet'
                 },
 
                 // includes webroot/logs files into custom directory
@@ -71,15 +63,11 @@ module.exports = function (grunt, options) {
                         || srcpath === 'bonzai/tpl/fork/config/bonzai/wp-constants/development.php'
                         || srcpath === 'bonzai/tpl/fork/config/bonzai/wp-constants/staging.php'
                         || srcpath === 'bonzai/tpl/fork/config/bonzai/wp-constants/production.php'
-                        || srcpath === 'bonzai/tpl/fork/config/puphpet/homebin/db_backup'
-                        || srcpath === 'bonzai/tpl/fork/.travis.yaml'
-                        || srcpath === 'bonzai/tpl/fork/.travis.yml'
-                        || srcpath === 'bonzai/tpl/fork/ruleset.xml'
                         || srcpath === 'bonzai/tpl/fork/wp-cli.yml'
                         || srcpath === 'bonzai/tpl/fork/.gitignore'
                         || srcpath === 'bonzai/tpl/fork/composer.json'
-                        || srcpath === 'bonzai/tpl/fork/puphpet/config.yaml'
-                        || srcpath === 'bonzai/tpl/fork/config/puphpet/config-override.yaml'
+                        || srcpath === 'bonzai/tpl/fork/config/homestead/Homestead.yaml'
+                        || srcpath === 'bonzai/tpl/fork/config/homestead/Homestead-user.yaml'
                         || srcpath === 'bonzai/tpl/fork/README.md') {
                         return grunt.template.process(content.replace(/\{\%\=\s+([a-zA-Z0-9\.\_\-]+)\s+\%\}/g, "<%= " + "$1" + " %>"));
                     }
@@ -87,19 +75,19 @@ module.exports = function (grunt, options) {
                 }
             }
         },
-        puphpet: {
+        homestead: {
             files: [
-                // includes puphpet config file into config/bonzai directory
+                // includes homestead config file into config/bonzai directory
                 {
                     expand: true,
-                    cwd: 'bonzai/tpl/fork/config/puphpet',
-                    src: ['config-override.yaml'],
-                    dest: 'config/puphpet'
+                    cwd: 'bonzai/tpl/fork/config/homestead',
+                    src: ['Homestead-user.yaml'],
+                    dest: 'config/homestead'
                 }
             ],
             options: {
                 process: function (content, srcpath) {
-                    if (srcpath === 'bonzai/tpl/fork/config/puphpet/config-override.yaml') {
+                    if (srcpath === 'bonzai/tpl/fork/config/homestead/Homestead-user.yaml') {
                         return grunt.template.process(content.replace(/\{\%\=\s+([a-zA-Z0-9\.\_\-]+)\s+\%\}/g, "<%= " + "$1" + " %>"));
                     }
                     return content;

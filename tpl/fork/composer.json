@@ -12,6 +12,9 @@
     "wpackagist-plugin/recently-edited-content-widget": "0.3.2",
     "wpackagist-plugin/right-now-reloaded": "2.2"
   },
+  "require-dev": {
+    "laravel/homestead": "^8.5"
+  },
   "config": {
     "preferred-install": "dist"
   },

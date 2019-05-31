@@ -11,10 +11,12 @@ repetitive tasks.
 Features
 --------
 
-* Vagrant environment ready using [Puphpet](https://puphpet.com)
+* Vagrant environment ready using [Homestead](https://laravel.com/docs/master/homestead)
 * Dependency management with [Composer](http://getcomposer.org)
 * Automated construction with [Grunt](http://gruntjs.com/)
 * Automated deployments with [Shipit](https://github.com/shipitjs/shipit)
+* WP pre-configuration with [WP-Cli](https://wp-cli.org)
+* Database migration with [WPMDB](https://deliciousbrains.com/wp-migrate-db-pro/) 
 * Environment variables with [Dotenv](https://github.com/vlucas/phpdotenv)
 * Better folder structure and Integrated plugins
 * And more ...
@@ -30,7 +32,7 @@ It is recommended to read the docs in the following order :
 - **How it works**  
   * [Environments variables](doc/how/environments.md)
   * [Automated tasks using Grunt](doc/how/grunt.md)
-  * [Vagrant environment using Puphpet](doc/how/vagrant.md)
+  * [Vagrant environment using Homestead](doc/how/vagrant.md)
   * [Plugins management using Composer](doc/how/composer.md)
   * [Custom cron](doc/how/cron.md)
   * [Automatically generated changelog](doc/how/commits.md)
@@ -60,27 +62,31 @@ The organization of **Bonzai** is similar to putting WordPress in its own subdir
   
 Click on the links below for more information about the directory/file.
 
-+ [backups/](doc/how/backups.md)
-    + databases/ `: Folder used to store local database dumps`
 + config/
     + bonzai/
         + [grunt/](doc/how/grunt.md)
-            + actions/ `: Folder that allow to edit grunt actions or add new ones`
-            + tasks/ `: Folder that allow to edit grunt tasks or add new ones`
+          > `Folder that allow to edit grunt actions/tasks or add new ones`
+            + actions/
+            + tasks/
         + [shell/](doc/how/deploying.md#Running-additional-scripts-on-the-remote-server)
-            + post-deploy.sh `: Script executed remotely after deploying`
-        + [wp-constants/](doc/how/environments.md) `: Environment variables`
-            + _options.php `: Common variables`
-            + development.php `: Development variables`
-            + production.php `: Production variables`
-            + staging.php `: Staging variables`
+            + post-deploy.sh
+              > `Script executed remotely after deploying`
+        + [wp-constants/](doc/how/environments.md)
+          > `Environment variables`
+            + _options.php
+            + development.php
+            + production.php
+            + staging.php
         + application.json
-    + puphpet/
-        + homebin/
-        + [config-override.yaml](doc/how/vagrant.md#Custom-local-configuration)
-+ html/
-+ logs/
+    + homestead/
+        + [after.sh](https://laravel.com/docs/master/homestead#extending-homestead)
+        + [after-user.sh](doc/how/vagrant.md#Custom-local-configuration)
+        + [aliases](https://laravel.com/docs/master/homestead#aliases)
+        + [Homestead.yaml](https://laravel.com/docs/master/homestead#configuring-homestead)
+        + [Homestead-user.yaml](doc/how/vagrant.md#Custom-local-configuration)
 + bonzai/
++ logs/ `: storing PHP error logs for easy access. Will also be displayed on WP admin dashboard`
++ [mysql_backup/](doc/how/backups.md) `: Folder used to store local database dumps`
 + node_modules/
 + public/
    + wp/
@@ -93,8 +99,7 @@ Click on the links below for more information about the directory/file.
       + uploads/
    + .htaccess
    + index.php
-   + wp-config.php   
-+ puphpet/
+   + wp-config.php
 + tmp/
    + workspace/
 + vendor/
