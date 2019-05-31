@@ -28,7 +28,7 @@ module.exports = function (grunt, options) {
             var tasks = [
 
                 // Fork the files from Bonzai templates
-                'copy:puphpet',
+                'copy:homestead',
 
                 // Install Composer dependencies
                 'exec:run_composer',
