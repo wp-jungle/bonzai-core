@@ -59,7 +59,7 @@ module.exports = function (grunt, options) {
         var unyson = '';
         // Build Unyson extension
         if(grunt.file.exists(options.app.webRoot + "/app/plugins/unyson/unyson.php")) {
-            unyson = " && cp /var/www/config/bonzai/shell/unyson-install.bash " + grunt.shipit.config.workspace + "/" + options.app.webRoot +  "/app/plugins/unyson/framework/extensions/clone-all.bash && cd '" + grunt.shipit.config.workspace + "/" + options.app.webRoot + "/app/plugins/unyson/framework/extensions" + "' && ./clone-all.bash";
+            unyson = " && cp /home/vagrant/code/config/bonzai/shell/unyson-install.bash " + grunt.shipit.config.workspace + "/" + options.app.webRoot +  "/app/plugins/unyson/framework/extensions/clone-all.bash && cd '" + grunt.shipit.config.workspace + "/" + options.app.webRoot + "/app/plugins/unyson/framework/extensions" + "' && ./clone-all.bash";
         }
 
         // Run dependencies installation

@@ -60,7 +60,7 @@ module.exports = function (grunt) {
             "deployTo": "/staging.<%= app.domain %>",
             "url": "http://staging.<%= app.domain %>",
             "shared": {
-                "symlinkPath": "/var/www/vhosts/<%= app.domain %>/staging.<%= app.domain %>/shared"
+                "symlinkPath": "/home/vagrant/code/vhosts/<%= app.domain %>/staging.<%= app.domain %>/shared"
             }
         },
 
@@ -70,7 +70,7 @@ module.exports = function (grunt) {
             "url": "http://<%= app.domain %>",
             "branch": "master",
             "shared": {
-                "symlinkPath": "/var/www/vhosts/<%= app.domain %>/httpdocs/shared"
+                "symlinkPath": "/home/vagrant/code/vhosts/<%= app.domain %>/httpdocs/shared"
             }
         }
     };

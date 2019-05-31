@@ -44,7 +44,7 @@ module.exports = function (grunt, options) {
                     expand: true,
                     cwd: 'bonzai/tpl/fork/mysql_backup/',
                     src: ["**", "**/.*"],
-                    dest: 'backups'
+                    dest: 'mysql_backup'
                 },
 
                 // includes webroot/logs files into custom directory

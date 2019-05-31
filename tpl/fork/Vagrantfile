@@ -1,9 +1,11 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
-require 'json'
-require 'yaml'
-require 'bonzai/src/homestead/deep_merge.rb'
+dir = File.dirname(File.expand_path(__FILE__))
+
+require "json"
+require "yaml"
+require "#{dir}/bonzai/src/homestead/deep_merge.rb"
 
 VAGRANTFILE_API_VERSION ||= "2"
 confDir = $confDir ||= File.expand_path("vendor/laravel/homestead", File.dirname(__FILE__))

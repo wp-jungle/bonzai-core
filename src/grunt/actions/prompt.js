@@ -176,19 +176,19 @@ module.exports = function (grunt, options) {
                         config: 'bonzai.env.DB_NAME',
                         type: 'input',
                         message: 'DB_NAME:',
-                        default: options.bonzai.isForked ? '<%= bonzai.env.DB_NAME %>' : 'db_name'
+                        default: options.bonzai.isForked ? '<%= bonzai.env.DB_NAME %>' : 'homestead'
                     },
                     {
                         config: 'bonzai.env.DB_USER',
                         type: 'input',
                         message: 'DB_USER:',
-                        default: options.bonzai.isForked ? '<%= bonzai.env.DB_USER %>' : 'wp'
+                        default: options.bonzai.isForked ? '<%= bonzai.env.DB_USER %>' : 'homestead'
                     },
                     {
                         config: 'bonzai.env.DB_PASSWORD',
                         type: 'input',
                         message: 'DB_PASSWORD:',
-                        default: options.bonzai.isForked ? '<%= bonzai.env.DB_PASSWORD %>' : 'wp'
+                        default: options.bonzai.isForked ? '<%= bonzai.env.DB_PASSWORD %>' : 'secret'
                     },
                     {
                         config: 'bonzai.env.DB_HOST',

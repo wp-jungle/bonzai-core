@@ -4,28 +4,28 @@ module.exports = function (grunt, options) {
 
         // Vagrant up
         vagrant_up: {
-            command: 'vagrant up --provision',
+            command: 'vagrant up',
             options: {stdout: true}
         },
 
         // Install
         wp_install: {
-            command: 'vagrant ssh --command "cd /var/www && wp core install --url=\'<%= bonzai.env.WP_HOME.replace(\"http://\", \"\").replace(\"https://\", \"\") %>\' --title=\'<%= bonzai.env.BONZAI_WP_TITLE %>\' --admin_user=\'<%= bonzai.env.BONZAI_ADMIN_NAME %>\' --admin_password=\'<%= bonzai.env.BONZAI_ADMIN_PASSWORD %>\' --admin_email=\'<%= bonzai.env.BONZAI_ADMIN_EMAIL %>\'"',
+            command: 'vagrant ssh --command "cd /home/vagrant/code && wp core install --url=\'<%= bonzai.env.WP_HOME.replace(\"http://\", \"\").replace(\"https://\", \"\") %>\' --title=\'<%= bonzai.env.BONZAI_WP_TITLE %>\' --admin_user=\'<%= bonzai.env.BONZAI_ADMIN_NAME %>\' --admin_password=\'<%= bonzai.env.BONZAI_ADMIN_PASSWORD %>\' --admin_email=\'<%= bonzai.env.BONZAI_ADMIN_EMAIL %>\'"',
             options: {stdout: true}
         },
 
         // Install Multisite
         wp_install_multisite: {
-            command: 'vagrant ssh --command "cd /var/www && wp core multisite-install --url=\'<%= bonzai.env.WP_HOME.replace(\"http://\", \"\").replace(\"https://\", \"\") %>\' --base=\'/\' --title=\'<%= bonzai.env.BONZAI_WP_TITLE %>\' --admin_user=\'<%= bonzai.env.BONZAI_ADMIN_NAME %>\' --admin_password=\'<%= bonzai.env.BONZAI_ADMIN_PASSWORD %>\' --admin_email=\'<%= bonzai.env.BONZAI_ADMIN_EMAIL %>\'"',
+            command: 'vagrant ssh --command "cd /home/vagrant/code && wp core multisite-install --url=\'<%= bonzai.env.WP_HOME.replace(\"http://\", \"\").replace(\"https://\", \"\") %>\' --base=\'/\' --title=\'<%= bonzai.env.BONZAI_WP_TITLE %>\' --admin_user=\'<%= bonzai.env.BONZAI_ADMIN_NAME %>\' --admin_password=\'<%= bonzai.env.BONZAI_ADMIN_PASSWORD %>\' --admin_email=\'<%= bonzai.env.BONZAI_ADMIN_EMAIL %>\'"',
             options: {stdout: true}
         },
 
         // Settings
         wp_settings: {
             command: [
-                'vagrant ssh --command "cd /var/www && wp option update siteurl \'<%= bonzai.env.WP_SITEURL %>\' --url=\'<%= bonzai.env.WP_HOME.replace(\"http://\", \"\").replace(\"https://\", \"\") %>\'"',
-                'vagrant ssh --command "cd /var/www && wp option update home \'<%= bonzai.env.WP_HOME %>\' --url=\'<%= bonzai.env.WP_HOME.replace(\"http://\", \"\").replace(\"https://\", \"\") %>\'"',
-                'vagrant ssh --command "cd /var/www && wp option update blogdescription \'\' --url=\'<%= bonzai.env.WP_HOME.replace(\"http://\", \"\").replace(\"https://\", \"\") %>\'"'
+                'vagrant ssh --command "cd /home/vagrant/code && wp option update siteurl \'<%= bonzai.env.WP_SITEURL %>\' --url=\'<%= bonzai.env.WP_HOME.replace(\"http://\", \"\").replace(\"https://\", \"\") %>\'"',
+                'vagrant ssh --command "cd /home/vagrant/code && wp option update home \'<%= bonzai.env.WP_HOME %>\' --url=\'<%= bonzai.env.WP_HOME.replace(\"http://\", \"\").replace(\"https://\", \"\") %>\'"',
+                'vagrant ssh --command "cd /home/vagrant/code && wp option update blogdescription \'\' --url=\'<%= bonzai.env.WP_HOME.replace(\"http://\", \"\").replace(\"https://\", \"\") %>\'"'
             ].join(' && '),
             options: {stdout: true}
         },
@@ -33,7 +33,7 @@ module.exports = function (grunt, options) {
         // DB update
         wp_update_db: {
             command: [
-                'vagrant ssh --command "cd /var/www && wp core update-db --url=\'<%= bonzai.env.WP_HOME.replace(\"http://\", \"\").replace(\"https://\", \"\") %>\'"'
+                'vagrant ssh --command "cd /home/vagrant/code && wp core update-db --url=\'<%= bonzai.env.WP_HOME.replace(\"http://\", \"\").replace(\"https://\", \"\") %>\'"'
             ].join(' && '),
             options: {stdout: true}
         },
@@ -41,7 +41,7 @@ module.exports = function (grunt, options) {
         // DB update Multisite
         wp_update_db_multisite: {
             command: [
-                'vagrant ssh --command "cd /var/www && wp core update-db --network --url=\'<%= bonzai.env.WP_HOME.replace(\"http://\", \"\").replace(\"https://\", \"\") %>\'"'
+                'vagrant ssh --command "cd /home/vagrant/code && wp core update-db --network --url=\'<%= bonzai.env.WP_HOME.replace(\"http://\", \"\").replace(\"https://\", \"\") %>\'"'
             ].join(' && '),
             options: {stdout: true}
         },
@@ -71,7 +71,7 @@ module.exports = function (grunt, options) {
         // Permalinks
         wp_permalinks: {
             command: [
-                'vagrant ssh --command "cd /var/www && wp rewrite structure \'/%postname%\'"'
+                'vagrant ssh --command "cd /home/vagrant/code && wp rewrite structure \'/%postname%\'"'
             ].join(' && '),
             options: {stdout: true}
         },
@@ -79,14 +79,14 @@ module.exports = function (grunt, options) {
         // Cleanup
         wp_cleanup: {
             command: [
-                'vagrant ssh --command "cd /var/www && wp cache flush --url=\'<%= bonzai.env.WP_HOME.replace(\"http://\", \"\").replace(\"https://\", \"\") %>\'"'
+                'vagrant ssh --command "cd /home/vagrant/code && wp cache flush --url=\'<%= bonzai.env.WP_HOME.replace(\"http://\", \"\").replace(\"https://\", \"\") %>\'"'
             ].join(' && '),
             options: {stdout: true}
         },
 
         // Compose
         run_composer: {
-            command: 'echo \'>> Running composer update\' && composer update',
+            command: 'echo ">> Running composer update" && composer update',
             options: {stdout: true}
         }
 
@@ -100,13 +100,13 @@ module.exports = function (grunt, options) {
         // Bower update
         targets[theme.slug + "-bower-update"] = {
             cwd: theme.path,
-            cmd: "vagrant ssh -c \"cd /var/www/" + theme.path + " && bower update --save\""
+            cmd: "vagrant ssh -c \"cd /home/vagrant/code/" + theme.path + " && bower update --save\""
         };
 
         // Composer update
         targets[theme.slug + "-composer-update"] = {
             cwd: theme.path,
-            cmd: "vagrant ssh -c \"cd /var/www/" + theme.path + " && composer update\""
+            cmd: "vagrant ssh -c \"cd /home/vagrant/code/" + theme.path + " && composer update\""
         };
     });
 

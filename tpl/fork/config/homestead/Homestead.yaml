@@ -12,11 +12,8 @@ folders:
 sites:
     -
         map: {%= pkg.name %}.test
-        to: /home/vagrant/code/public
+        to: /home/vagrant/code/{%= app.webRoot %}
 databases:
     - {%= pkg.name %}
 name: {%= pkg.name %}
 hostname: {%= pkg.name %}.homestead
-elasticsearch: 7.1
-neo4j: true
-backup: true
