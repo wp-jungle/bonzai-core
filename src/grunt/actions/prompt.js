@@ -399,8 +399,8 @@ module.exports = function (grunt, options) {
                         type: 'input',
                         message: 'Path/strings  to find in the database:',
                         default: function() {
-                            let httpdocs = psl.get(extractHostname(grunt.config('app.domain'))) === grunt.config('app.domain') ? 'httpdocs' : grunt.config('app.domain');
-                            return options.app.wpmdb.pull.find || "//" + grunt.config('app.domain') + ",/let/www/vhosts/" + getDomain('http://' + grunt.config('app.domain') + '/') + "/" + httpdocs + "/current";
+                            let httpdocs = psl.get(getHostName(grunt.config('app.domain'))) === grunt.config('app.domain') ? 'httpdocs' : grunt.config('app.domain');
+                            return options.app.wpmdb.pull.find || "//" + grunt.config('app.domain') + ",/var/www/vhosts/" + getDomain('http://' + grunt.config('app.domain') + '/') + "/" + httpdocs + "/current";
                         },
                         when: function (answers) {
                             return answers['wp.wpmdb.ask'] !== false && options.bonzai.isForked && answers['wp.wpmdb.import'] === true;
@@ -411,7 +411,7 @@ module.exports = function (grunt, options) {
                         type: 'input',
                         message: 'Replacements for each path/strings found:',
                         default: function() {
-                            return options.app.wpmdb.pull.replace || "//" + grunt.config('pkg.name') + ".test,/let/www";
+                            return options.app.wpmdb.pull.replace || "//" + grunt.config('pkg.name') + ".test,/var/www";
                         },
                         when: function (answers) {
                             return answers['wp.wpmdb.ask'] !== false && options.bonzai.isForked && answers['wp.wpmdb.import'] === true;
