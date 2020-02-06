@@ -1,6 +1,6 @@
 ip: 192.168.10.10
 memory: 2048
-cpus: 2
+cpus: 1
 provider: virtualbox
 authorize: ~/.ssh/id_rsa.pub
 keys:
@@ -9,11 +9,13 @@ folders:
     -
         map: ./
         to: /home/vagrant/code
+        type: "nfs"
 sites:
     -
         map: {%= pkg.name %}.test
         to: /home/vagrant/code/{%= app.webRoot %}
         php: "7.1"
+        type: apache
 databases:
     - {%= pkg.name %}
 name: {%= pkg.name %}
